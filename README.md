@@ -25,8 +25,6 @@ This project is a simple yet powerful Task Manager focused on everyday productiv
 * Optional auth (local/JWT/OAuth)—replace with your preferred method
 * Light/Dark theme
 
----
-
 ## Usage
 
 1. **Create Tasks** with title, description, priority, tags, estimate, and due date.
@@ -37,26 +35,11 @@ This project is a simple yet powerful Task Manager focused on everyday productiv
 6. **Install as PWA**: Use the browser’s *Install App* option for a native-like experience.
 7. **Go Offline**: Continue using the app. Data syncs when back online.
 
----
-
 ## PWA
 
 * **Service Worker**: Caches shell & API fallbacks for offline use.
 * **Web App Manifest**: Icons, name, theme, display mode.
-* **Installability**: Triggers install prompt.
 * **Offline**: Read tasks and create offline mutations queued for sync.
-
----
-
-## Roadmap
-
-* [ ] Repeating tasks & templates
-* [ ] iCal export / import
-* [ ] Advanced reports (burndown, weekly summaries)
-* [ ] Team mode (assign to users, shared calendars)
-* [ ] Mobile-first time tracker UI
-
----
 
 ## License
 
