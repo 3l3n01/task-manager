@@ -1,4 +1,8 @@
 import { Box, Group, Select, Stack } from "@mantine/core";
+import { useMemo } from "react";
+
+// Store
+import { useDateStore } from "../../Stores/dateStore";
 
 // Styles
 import CLS from "./Calendar.module.css";
@@ -49,19 +53,32 @@ export function getDaysWithNamesInMonth(
 ): { day: number; name: string }[] {
   const daysInMonth = new Date(year, month, 0).getDate();
   return Array.from({ length: daysInMonth }, (_, i) => {
-    const date = new Date(year, month - 1, i + 1);
+    const date = new Date(year, month, i + 1);
     const dayIndex = date.getDay();
     return { day: i + 1, name: dayNames[dayIndex] };
   }).filter((d) => weekdays.includes(dayNames.indexOf(d.name)));
 }
 
-export function Calendar() {
-  var currentMonth = new Date().getMonth();
-  var days = getDaysWithNamesInMonth(
-    new Date().getFullYear(),
-    new Date().getMonth() + 1,
-    DayNames,
-    [1, 2, 3, 4, 5]
+interface CalendarProps {
+  onDateChange?: (year: number, month: number, day: number) => void;
+}
+
+export function Calendar({ onDateChange }: CalendarProps) {
+  const daysValid = [1, 2, 3, 4, 5];
+
+  const year = useDateStore((state) => state.year);
+  const month = useDateStore((state) => state.month);
+  const day = useDateStore((state) => state.day);
+
+  // Actions
+  const setYear = useDateStore((state) => state.setYear);
+  const setMonth = useDateStore((state) => state.setMonth);
+  const setDay = useDateStore((state) => state.setDay);
+
+  // Recalcula los días automáticamente cuando cambian year, month o daysValid
+  const days = useMemo(
+    () => getDaysWithNamesInMonth(year, month, DayNames, daysValid),
+    [year, month, daysValid]
   );
 
   return (
@@ -72,17 +89,29 @@ export function Calendar() {
             data={Years}
             radius="xs"
             style={{ width: 90 }}
-            defaultValue={new Date().getFullYear().toString()}
+            defaultValue={year.toString()}
             checkIconPosition="left"
+            onChange={(val) => {
+              setYear(parseInt(val || "2024"));
+              onDateChange && onDateChange(parseInt(val || "2024"), month, day);
+            }}
           />
-          {Months.map((month, index) => (
+          {Months.map((mn, index) => (
             <Box
               key={index}
               className={`${CLS.month} ${
-                index == currentMonth ? CLS.monthSelected : ""
+                index === Number(month) - 1 ? CLS.monthSelected : ""
               }`}
+              onClick={() => {
+                const newMonth = index + 1;
+                const newDays = getDaysWithNamesInMonth(year, newMonth, DayNames, daysValid);
+                const firstDay = newDays.length > 0 ? newDays[0].day : 1;
+                setMonth(newMonth);
+                setDay(firstDay);
+                onDateChange && onDateChange(year, newMonth, firstDay);
+              }}
             >
-              {month}
+              {mn}
             </Box>
           ))}
         </Group>
@@ -90,7 +119,11 @@ export function Calendar() {
           {days.map((dt, index) => (
             <Box
               key={index}
-              className={`${CLS.day} ${dt.day == new Date().getDate() ? CLS.daySelected : ""}`}
+              className={`${CLS.day} ${dt.day == day ? CLS.daySelected : ""}`}
+              onClick={() => {
+                setDay(dt.day);
+                onDateChange && onDateChange(year, month, dt.day);
+              }}
             >
               <Stack align="center" justify="center" gap="xs">
                 <Box>{dt.name}</Box>
