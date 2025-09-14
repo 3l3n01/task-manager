@@ -1,7 +1,7 @@
 import { Burger, Container, Group, Tabs, Title } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "./Header.module.css";
-import { IconSettings } from "@tabler/icons-react";
+import { IconSettings, IconHelp } from "@tabler/icons-react";
 
 interface HeaderTabsProps {
   onTabChange?: (value: string | null) => void;
@@ -42,12 +42,17 @@ export function HeaderTabs({ onTabChange }: HeaderTabsProps) {
           >
             <Tabs.List>
               <Tabs.Tab value="tasks">Tareas</Tabs.Tab>
-              <Tabs.Tab value="statistics">Estadisticas</Tabs.Tab>
+              {/* <Tabs.Tab value="statistics">Estadisticas</Tabs.Tab> */}
               <Tabs.Tab value="categories">Categorias</Tabs.Tab>
-              <Tabs.Tab value="projects">Proyectos</Tabs.Tab>
+              {/* <Tabs.Tab value="projects">Proyectos</Tabs.Tab> */}
+              {/* <Tabs.Tab value="teamplates">Plantillas</Tabs.Tab> */}
+              <Tabs.Tab
+                value="help"
+                ml="auto"
+                leftSection={<IconHelp size={20} />}
+              />
               <Tabs.Tab
                 value="settings"
-                ml="auto"
                 leftSection={<IconSettings size={20} />}
               />
             </Tabs.List>

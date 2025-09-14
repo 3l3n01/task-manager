@@ -1,0 +1,11 @@
+.button {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  color: var(--mantine-color-text);
+}
+
+.menuControl {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-left: 0;
+}

@@ -16,12 +16,9 @@ import {
 import { CSS } from "@dnd-kit/utilities";
 import { IconGripVertical } from "@tabler/icons-react";
 import cx from "clsx";
-import { Text, Group, Box, Button } from "@mantine/core";
+import { Text, Group, Box } from "@mantine/core";
 import { useListState } from "@mantine/hooks";
 import classes from "./Tasks.module.css";
-
-import { useState } from "react";
-import { Input, CloseButton } from "@mantine/core";
 
 const data: {
   id: number;
@@ -102,30 +99,8 @@ export function Tasks() {
     handlers.setState(arrayMove(state, oldIndex, newIndex));
   };
 
-  const [value, setValue] = useState("Clear me");
-
   return (
     <>
-      <Group justify="space-between" gap="xs" mb={15}>
-        <Input
-          placeholder="Buscar una tarea"
-          value={value}
-          onChange={(event) => setValue(event.currentTarget.value)}
-          rightSectionPointerEvents="all"
-          rightSection={
-            <CloseButton
-              aria-label="Borrar"
-              onClick={() => setValue("")}
-              style={{ display: value ? undefined : "none" }}
-            />
-          }
-          w={350}
-        />
-
-        <Button variant="default" radius="xs">
-          Agregar Tarea
-        </Button>
-      </Group>
       <DndContext
         sensors={sensors}
         collisionDetection={closestCenter}

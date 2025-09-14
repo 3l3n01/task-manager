@@ -18,7 +18,8 @@
     "@mantinex/mantine-logo": "^2.0.0",
     "@tabler/icons-react": "^3.34.1",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
     "@types/react": "^19.1.13",

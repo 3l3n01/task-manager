@@ -10,6 +10,8 @@ import { StatisticsPage } from "./Pages/Statistics/Statistics";
 import { CategoriesPage } from "./Pages/Categories/Categories";
 import { ProjectsPage } from "./Pages/Projects/Projects";
 import { SettingsPage } from "./Pages/Settings/Settings";
+import { TemplatesPage } from "./Pages/Templates/Templates";
+import { FaqSimple } from "./Pages/Help/HelpPages";
 
 // Styles
 import FVS from "./Styles/FluidVertical.module.css";
@@ -30,6 +32,8 @@ export default function App() {
             {activeTab === "categories" && <CategoriesPage />}
             {activeTab === "projects" && <ProjectsPage />}
             {activeTab === "settings" && <SettingsPage />}
+            {activeTab === "templates" && <TemplatesPage />}
+            {activeTab === "help" && <FaqSimple />}
           </Container>
         </ScrollAreaAutosize>
       </Box>
