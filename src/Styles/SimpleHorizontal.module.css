@@ -1,0 +1,15 @@
+.StackHorizontalContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: stretch;
+}
+
+.StackHorizontalContainer > .StackSection {
+  flex: 0 0 auto;
+}
+
+.StackHorizontalContainer > .StackSectionMain {
+  flex: 1 1 0;
+  min-width: 0;
+}

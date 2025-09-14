@@ -1,0 +1,22 @@
+.Root {
+  flex: 1 1 0%;
+  min-width: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.ContainerDinamic {
+  flex: 1 1 0%;
+  min-width: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.ContainerAutosize {
+  flex: 0 0 auto;
+}
+
+.ContainerScrollable {
+  flex: 1 1 0%;
+  min-width: 0;
+}

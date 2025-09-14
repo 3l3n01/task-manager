@@ -1,0 +1,2 @@
+Español (3 letras, desde domingo): Dom, Lun, Mar, Mié, Jue, Vie, Sáb.
+Inglés (3 letras, desde Sunday): Sun, Mon, Tue, Wed, Thu, Fri, Sat.

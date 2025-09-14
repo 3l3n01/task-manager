@@ -1,0 +1,42 @@
+.StackVerticalRootContainer {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.StackVerticalContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Cambio de 100dvh a 100% */
+}
+
+.StackVerticalSection {
+  flex-shrink: 0;
+}
+
+.StackVerticalMain {
+  flex: 1 1 0%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.Center {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.Correction {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.Flx {
+  flex: 1;
+}
+
+.FullH {
+  height: 100vh;
+}
