@@ -50,7 +50,7 @@ export function TaskList({}: TaskListProps) {
           <IconDots size={20} />
         </ActionIcon> */}
         <Box style={{ marginRight: 17 }}>
-          <StateTaskBtn />
+          <StateTaskBtn stoppable={false} />
         </Box>
       </Center>
     );

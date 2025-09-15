@@ -3,15 +3,18 @@ import { ActionIcon } from "@mantine/core";
 import {
   IconPlayerPlayFilled,
   IconPlayerPauseFilled,
+  IconPlayerStopFilled,
 } from "@tabler/icons-react";
 
 interface StateTaskBtnProps {
   status?: "stop" | "play" | "loading" | "error" | "success";
+  stoppable?: boolean;
   onChange?: (value: string) => void;
 }
 
 export function StateTaskBtn({
   status = "stop",
+  stoppable = true,
   onChange = () => {},
 }: StateTaskBtnProps) {
   const [currentStatus, setCurrentStatus] = useState(status);
@@ -33,7 +36,12 @@ export function StateTaskBtn({
       }}
     >
       {currentStatus === "stop" && <IconPlayerPlayFilled size={20} />}
-      {currentStatus === "play" && <IconPlayerPauseFilled size={20} />}
+      {currentStatus === "play" && stoppable && (
+        <IconPlayerPauseFilled size={20} />
+      )}
+      {currentStatus === "play" && !stoppable && (
+        <IconPlayerStopFilled size={20} />
+      )}
     </ActionIcon>
   );
 }

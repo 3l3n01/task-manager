@@ -16,7 +16,7 @@ export function HeaderTabs({ onTabChange }: HeaderTabsProps) {
         <Container className={classes.mainSection} size="md">
           <Group justify="space-between">
             <></>
-            <Title>Simple Task</Title>
+            <Title>KPlanify</Title>
 
             <Burger
               opened={opened}
