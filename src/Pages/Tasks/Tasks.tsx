@@ -7,7 +7,7 @@ import { Calendar } from "../../components/Calendar/Calendar";
 import { ProgressChart } from "../../components/ProgressChart/ProgressChart";
 import { InputSearch } from "../../components/InputSearch/InputSearch";
 import { SplitButton } from "../../components/SplitButton/SplitButton";
-import { IconCategoryPlus } from "@tabler/icons-react";
+import { IconCategoryPlus, IconReport } from "@tabler/icons-react";
 
 export function TasksPage() {
   return (
@@ -25,6 +25,10 @@ export function TasksPage() {
             {
               label: "Agregar Grupo",
               leftSection: <IconCategoryPlus size={16} stroke={1.5} />,
+            },
+            {
+              label: "Descargar Reporte",
+              leftSection: <IconReport size={16} stroke={1.5} />,
             },
           ]}
         />
