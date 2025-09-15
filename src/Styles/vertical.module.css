@@ -7,7 +7,7 @@
 .StackVerticalContainer {
   display: flex;
   flex-direction: column;
-  flex: 1; /* Cambio de 100dvh a 100% */
+  height: 100%;
 }
 
 .StackVerticalSection {
@@ -39,4 +39,5 @@
 
 .FullH {
   height: 100vh;
+}
 }

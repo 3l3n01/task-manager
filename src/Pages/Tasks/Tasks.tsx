@@ -1,17 +1,26 @@
 import { Title, Group } from "@mantine/core";
 
+// Hooks
+import { useDisclosure } from "@mantine/hooks";
+
 // Componentes
+import { IconCategoryPlus, IconReport } from "@tabler/icons-react";
+
 // import { Tasks } from "../../components/Tasks/Tasks";
 import { TaskList } from "../../components/Tasks/TaskList";
 import { Calendar } from "../../components/Calendar/Calendar";
 import { ProgressChart } from "../../components/ProgressChart/ProgressChart";
 import { InputSearch } from "../../components/InputSearch/InputSearch";
 import { SplitButton } from "../../components/SplitButton/SplitButton";
-import { IconCategoryPlus, IconReport } from "@tabler/icons-react";
+import { FormTask } from "../../components/Tasks/Form/Task";
 
 export function TasksPage() {
+  const [opened, { open, close }] = useDisclosure(false);
+
   return (
     <>
+      <FormTask onClose={close} opened={opened} title="" />
+
       <Calendar />
       <ProgressChart />
 
@@ -20,7 +29,7 @@ export function TasksPage() {
         <InputSearch placeholder="Buscar tarea..." width={450} />
         <SplitButton
           variant="default"
-          button={{ label: "Agregar Tarea" }}
+          button={{ label: "Agregar Tarea", onClick: open }}
           actions={[
             {
               label: "Agregar Grupo",
