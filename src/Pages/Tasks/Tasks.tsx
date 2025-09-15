@@ -19,7 +19,7 @@ export function TasksPage() {
 
   return (
     <>
-      <FormTask onClose={close} opened={opened} title="" />
+      <FormTask onClose={close} opened={opened} title="Agregar Tarea" />
 
       <Calendar />
       <ProgressChart />
