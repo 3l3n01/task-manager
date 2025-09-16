@@ -1,4 +1,4 @@
-import { Title, Group, Select, Box } from "@mantine/core";
+import { Title, Group, Select, Box, Button } from "@mantine/core";
 
 // Hooks
 // import { useDisclosure } from "@mantine/hooks";
@@ -17,6 +17,7 @@ import { SplitButton } from "../../components/SplitButton/SplitButton";
 // Forms
 import { FormGroup } from "../../components/Tasks/Form/Group";
 import { FormTask } from "../../components/Tasks/Form/Task";
+import { FormEvidence } from "../../components/Tasks/Form/Evidence";
 
 export function TasksPage() {
   // const [FormTaskopened, { open, close }] = useDisclosure(false);
@@ -27,6 +28,10 @@ export function TasksPage() {
   const [FormGroupopened, setFormGroupOpened] = useState(false);
   const openGroup = () => setFormGroupOpened(true);
   const closeGroup = () => setFormGroupOpened(false);
+
+  const [FormEvidenceopened, setFormEvidenceOpened] = useState(false);
+  const openEvidence = () => setFormEvidenceOpened(true);
+  const closeEvidence = () => setFormEvidenceOpened(false);
 
   return (
     <>
@@ -41,8 +46,18 @@ export function TasksPage() {
         title="Agregar Grupo"
       />
 
+      <FormEvidence
+        onClose={closeEvidence}
+        opened={FormEvidenceopened}
+        title="Agregar Evidencia"
+      />
+
       <Calendar />
       <ProgressChart />
+
+      <Box mb={15}>
+        <Button onClick={openEvidence}>Evidencia</Button>
+      </Box>
 
       {/* Listado de tareas */}
       <Group justify="space-between" gap="xs" mb={20}>
