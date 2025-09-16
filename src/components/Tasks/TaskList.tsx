@@ -22,12 +22,14 @@ export function randomBool(): boolean {
 
 export function TaskList({}: TaskListProps) {
   const items = data.map((item) => (
-    <Accordion.Item value={item.id} key={item.label}>
+    <Box mb={15}>
+      <Accordion.Item value={item.id} key={item.label}>
         <AccordionControl {...item} />
         <Accordion.Panel>
           <Text size="sm">{item.content}</Text>
         </Accordion.Panel>
       </Accordion.Item>
+    </Box>
   ));
 
   interface AccordionControlProps {
