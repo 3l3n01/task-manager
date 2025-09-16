@@ -4,13 +4,18 @@ import classes from "./CheckboxCard.module.css";
 
 interface CheckboxCardProps {
   title: string;
+  defaultChecked?: boolean;
   description: string;
   checked?: boolean;
   onChange?: (checked: boolean) => void;
 }
 
-export function CheckboxCard({ title, description }: CheckboxCardProps) {
-  const [value, onChan] = useState(true);
+export function CheckboxCard({
+  title,
+  description,
+  defaultChecked = false,
+}: CheckboxCardProps) {
+  const [value, onChan] = useState(defaultChecked);
 
   return (
     <UnstyledButton onClick={() => onChan(!value)} className={classes.button}>

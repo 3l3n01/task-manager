@@ -1,7 +1,8 @@
 import { Title, Group } from "@mantine/core";
 
 // Hooks
-import { useDisclosure } from "@mantine/hooks";
+// import { useDisclosure } from "@mantine/hooks";
+import { useState } from "react";
 
 // Componentes
 import { IconCategoryPlus, IconReport } from "@tabler/icons-react";
@@ -12,14 +13,33 @@ import { Calendar } from "../../components/Calendar/Calendar";
 import { ProgressChart } from "../../components/ProgressChart/ProgressChart";
 import { InputSearch } from "../../components/InputSearch/InputSearch";
 import { SplitButton } from "../../components/SplitButton/SplitButton";
+
+// Forms
+import { FormGroup } from "../../components/Tasks/Form/Group";
 import { FormTask } from "../../components/Tasks/Form/Task";
 
 export function TasksPage() {
-  const [opened, { open, close }] = useDisclosure(false);
+  // const [FormTaskopened, { open, close }] = useDisclosure(false);
+  const [FormTaskopened, setFormTaskOpened] = useState(false);
+  const openTask = () => setFormTaskOpened(true);
+  const closeTask = () => setFormTaskOpened(false);
+
+  const [FormGroupopened, setFormGroupOpened] = useState(false);
+  const openGroup = () => setFormGroupOpened(true);
+  const closeGroup = () => setFormGroupOpened(false);
 
   return (
     <>
-      <FormTask onClose={close} opened={opened} title="Agregar Tarea" />
+      <FormTask
+        onClose={closeTask}
+        opened={FormTaskopened}
+        title="Agregar Tarea"
+      />
+      <FormGroup
+        onClose={closeGroup}
+        opened={FormGroupopened}
+        title="Agregar Grupo"
+      />
 
       <Calendar />
       <ProgressChart />
@@ -29,10 +49,11 @@ export function TasksPage() {
         <InputSearch placeholder="Buscar tarea..." width={450} />
         <SplitButton
           variant="default"
-          button={{ label: "Agregar Tarea", onClick: open }}
+          button={{ label: "Agregar Tarea", onClick: openTask }}
           actions={[
             {
               label: "Agregar Grupo",
+              onClick: openGroup,
               leftSection: <IconCategoryPlus size={16} stroke={1.5} />,
             },
             {

@@ -71,6 +71,7 @@ const Section: React.FC<SectionProps> = ({ title, porc, time, color }) => {
                       style={{ padding: 0, minWidth: 0 }}
                       onMouseEnter={open}
                       onMouseLeave={close}
+                      mb={6}
                     >
                       ...
                     </UnstyledButton>

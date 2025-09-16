@@ -1,12 +1,5 @@
 import { useRef } from "react";
-import {
-  Group,
-  Button,
-  TextInput,
-  Textarea,
-  Select,
-  Stack,
-} from "@mantine/core";
+import { Group, Button, TextInput, Textarea, Stack } from "@mantine/core";
 import { IconDeviceFloppy } from "@tabler/icons-react";
 
 // Components
@@ -16,13 +9,13 @@ import { CheckboxCard } from "../../CheckboxCard/CheckboxCard";
 // Hooks
 import { useForm } from "@mantine/form";
 
-interface FormTaskProps {
+interface FormGroupProps {
   opened: boolean;
   onClose: () => void;
   title?: string;
 }
 
-export function FormTask({ opened, title, onClose }: FormTaskProps) {
+export function FormGroup({ opened, title, onClose }: FormGroupProps) {
   const form = useForm({
     mode: "uncontrolled",
     initialValues: {
@@ -84,56 +77,24 @@ export function FormTask({ opened, title, onClose }: FormTaskProps) {
         <TextInput
           withAsterisk
           label="Nombre"
-          description="Agrega un nombre a la tarea"
-          placeholder="reunion con el equipo de desarrollo"
+          description="Agrega un nombre al grupo"
+          placeholder="Tareas diarias"
           mb={5}
         />
-        <Group justify="space-between" gap="xs">
-          <Select
-            label="Categoría"
-            placeholder="Categoría de la tarea"
-            description="Input description"
-            data={["React", "Angular", "Vue", "Svelte"]}
-            w={"calc(50% - 5px)"}
-            mb={5}
-          />
-          <Select
-            label="Grupo"
-            description="Grupo al que pertenece la tarea"
-            placeholder="Desarrollo/Implementación"
-            data={["React", "Angular", "Vue", "Svelte"]}
-            w={"calc(50% - 5px)"}
-            mb={5}
-          />
-        </Group>
 
         <Textarea
           withAsterisk
           label="Descripción"
-          description="Pequeña descripción de la tarea"
-          placeholder="Reunión para discutir los avances y próximos pasos del proyecto."
+          description="Pequeña descripción del grupo"
+          placeholder="Aquí va la descripción del grupo"
           rows={3}
           mb={5}
         />
 
-        <TextInput
-          label="Estimación de tiempo"
-          description="D = Días, H = Horas, M = Minutos"
-          placeholder="3H 20M"
-        />
-
         <Stack align="stretch" justify="space-between" gap="sm" mt={15}>
           <CheckboxCard
-            title="Ejecución Parcial"
-            description="La tarea puede pausarse y retomarse múltiples veces antes de finalizarse."
-          />
-          <CheckboxCard
-            title="Tarea Persistente"
-            description="La tarea permanece activa hasta que se marca como finalizada, sin depender de la fecha de inicio."
-          />
-          <CheckboxCard
-            title="Requiere Evidencia"
-            description="Obliga a registrar evidencia al cerrar o avanzar en una tarea o etapa."
+            title="Grupo Persistente"
+            description="Señala que el grupo no está asociada a una fecha específica de registro, sino que permanece activa en el calendario hasta que se marca como finalizado de forma explícita."
           />
         </Stack>
       </form>
