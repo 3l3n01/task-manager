@@ -53,7 +53,7 @@ export function getDaysWithNamesInMonth(
 ): { day: number; name: string }[] {
   const daysInMonth = new Date(year, month, 0).getDate();
   return Array.from({ length: daysInMonth }, (_, i) => {
-    const date = new Date(year, month, i + 1);
+    const date = new Date(year, month - 1, i + 1);
     const dayIndex = date.getDay();
     return { day: i + 1, name: dayNames[dayIndex] };
   }).filter((d) => weekdays.includes(dayNames.indexOf(d.name)));
