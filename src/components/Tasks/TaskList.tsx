@@ -6,6 +6,7 @@ import { IconPhoto } from "@tabler/icons-react";
 
 // Componentes
 import { StateTaskBtn } from "./Buttons/StateTaskBtn";
+// import { RunnerBorder } from "../Effects/RunnerBorder";
 
 // interface Task {}
 interface TaskListProps {}
@@ -15,14 +16,18 @@ interface AccordionLabelProps {
   description: string;
 }
 
+export function randomBool(): boolean {
+  return Math.random() < 0.5;
+}
+
 export function TaskList({}: TaskListProps) {
   const items = data.map((item) => (
     <Accordion.Item value={item.id} key={item.label}>
-      <AccordionControl {...item} />
-      <Accordion.Panel>
-        <Text size="sm">{item.content}</Text>
-      </Accordion.Panel>
-    </Accordion.Item>
+        <AccordionControl {...item} />
+        <Accordion.Panel>
+          <Text size="sm">{item.content}</Text>
+        </Accordion.Panel>
+      </Accordion.Item>
   ));
 
   interface AccordionControlProps {

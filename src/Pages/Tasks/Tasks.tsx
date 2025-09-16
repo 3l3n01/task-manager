@@ -1,4 +1,4 @@
-import { Title, Group } from "@mantine/core";
+import { Title, Group, Select, Box } from "@mantine/core";
 
 // Hooks
 // import { useDisclosure } from "@mantine/hooks";
@@ -46,7 +46,18 @@ export function TasksPage() {
 
       {/* Listado de tareas */}
       <Group justify="space-between" gap="xs" mb={20}>
-        <InputSearch placeholder="Buscar tarea..." width={450} />
+        <Box>
+          <Group justify="space-between" gap="xs">
+            <Select
+              placeholder="Filtrar"
+              clearable
+              searchable
+              data={["React", "Angular", "Vue", "Svelte"]}
+              w={100}
+            />
+            <InputSearch placeholder="Buscar tarea por nombre..." width={450} />
+          </Group>
+        </Box>
         <SplitButton
           variant="default"
           button={{ label: "Agregar Tarea", onClick: openTask }}

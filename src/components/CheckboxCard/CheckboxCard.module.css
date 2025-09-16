@@ -1,19 +1,18 @@
 .button {
   display: flex;
   width: 100%;
-  border: 1px solid
-    light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-8));
   border-radius: var(--mantine-radius-md);
-  padding: var(--mantine-spacing-lg);
+  padding: var(--mantine-spacing-lg) !important;
+  transition: background-color 150ms ease;
   background-color: light-dark(
     var(--mantine-color-white),
-    var(--mantine-color-dark-8)
+    var(--mantine-color-dark-6)
   );
 
   @mixin hover {
     background-color: light-dark(
       var(--mantine-color-gray-0),
-      var(--mantine-color-dark-9)
+      var(--mantine-color-dark-8)
     );
   }
 }
