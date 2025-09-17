@@ -1,0 +1,43 @@
+.textTruncateSingleLineFades {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+
+  --fade-size: 1.5ch;
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    black 0%,
+    black calc(100% - var(--fade-size)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    black 0%,
+    black calc(100% - var(--fade-size)),
+    transparent 100%
+  );
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+@supports not (mask-image: linear-gradient(black, transparent)) {
+  .textTruncateSingleLineFades {
+    position: relative;
+  }
+  .textTruncateSingleLineFades::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: var(--fade-size, 1.5ch);
+    pointer-events: none;
+    background: linear-gradient(to right, transparent, var(--fade-bg, white));
+  }
+}

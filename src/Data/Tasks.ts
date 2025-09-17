@@ -21,7 +21,7 @@ export const data = [
     id: "homer",
     image: "https://img.icons8.com/clouds/256/000000/homer-simpson.png",
     label: "Homer Simpson",
-    description: "Overweight, lazy, and often ignorant",
+    description: "This is a very very very long piece of text that will smoothly fade at the edge of its parent instead of being abruptly cut off. This is a very very very long piece of text that will smoothly fade at the edge of its parent instead of being abruptly cut off.",
     content:
       "Homer Jay Simpson (born May 12) is the main protagonist and one of the five main characters of The Simpsons series(or show). He is the spouse of Marge Simpson and father of Bart, Lisa and Maggie Simpson.",
   },
