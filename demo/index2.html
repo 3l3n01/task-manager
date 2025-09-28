@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Animated Border Runner</title>
+    <style>
+      :root {
+        --angle: 0deg;
+        --speed: 2.2s; /* animation speed */
+        --thickness: 3px; /* border thickness */
+        --color: #ff2770; /* runner color */
+        --bg: #0e0f13; /* inner background */
+        --radius: 14px; /* border radius */
+      }
+
+      .box {
+        position: relative;
+        width: 400px;
+        height: 200px;
+        background: var(--bg);
+        margin: 2rem auto;
+      }
+
+      .box::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        padding: var(--thickness);
+        background: conic-gradient(
+          from var(--angle),
+          var(--color) 0 14deg,
+          transparent 14deg 360deg
+        );
+        -webkit-mask: linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        mask-composite: exclude;
+        animation: spin var(--speed) linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          --angle: 360deg;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

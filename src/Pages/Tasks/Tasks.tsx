@@ -1,4 +1,4 @@
-import { Title, Group, Select, Box, Button } from "@mantine/core";
+import { Title, Group, Box, Button } from "@mantine/core";
 
 // Hooks
 // import { useDisclosure } from "@mantine/hooks";
@@ -63,14 +63,14 @@ export function TasksPage() {
       <Group justify="space-between" gap="xs" mb={20}>
         <Box>
           <Group justify="space-between" gap="xs">
-            <Select
+            {/* <Select
               placeholder="Filtrar"
               clearable
               searchable
               data={["React", "Angular", "Vue", "Svelte"]}
               w={100}
-            />
-            <InputSearch placeholder="Buscar tarea por nombre..." width={450} />
+            /> */}
+            <InputSearch placeholder="Buscar tarea por nombre..." width={500} />
           </Group>
         </Box>
         <SplitButton
@@ -90,7 +90,7 @@ export function TasksPage() {
         />
       </Group>
 
-      <TaskList />
+      <TaskList content="" description="" id="" label="" key={1}/>
 
       {/* Grupos */}
 
@@ -98,7 +98,7 @@ export function TasksPage() {
         Otras funcionalidades
       </Title>
 
-      <TaskList />
+      <TaskList content="" description="" id="" label="" key={2}/>
     </>
   );
 }

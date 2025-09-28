@@ -1,0 +1,60 @@
+.cont {
+  background-color: light-dark(
+    var(--mantine-color-white),
+    var(--item-filled-color)
+  );
+  border-color: light-dark(
+    var(--mantine-color-gray-2),
+    var(--mantine-color-dark-5)
+  ) !important;
+}
+
+.tabsList {
+  &::before {
+    display: none;
+  }
+}
+
+.tabs {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.tab {
+  font-weight: 500;
+  height: 38px;
+  background-color: transparent;
+  position: relative;
+  bottom: -1px;
+  border-radius: 0 !important;
+  height: 100%;
+
+  &::before,
+  &::after {
+    background-color: light-dark(
+      var(--mantine-color-gray-2),
+      var(--mantine-color-gray-1)
+    ) !important;
+  }
+
+  &:hover {
+    background-color: light-dark(
+      var(--mantine-color-gray-1),
+      var(--mantine-color-dark-5)
+    );
+  }
+
+  &[data-active] {
+    background-color: light-dark(
+      var(--mantine-color-white),
+      var(--item-filled-color)
+    );
+    /* border-color: light-dark(
+      var(--mantine-color-gray-2),
+      var(--mantine-color-dark-5)
+    );
+    border-bottom-color: transparent !important; */
+    border-color: transparent !important;
+  }
+}

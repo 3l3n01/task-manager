@@ -1,5 +1,4 @@
-import { Burger, Container, Group, Tabs, Title } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { Container, Group, Tabs, Title } from "@mantine/core";
 import classes from "./Header.module.css";
 import { IconSettings, IconHelp } from "@tabler/icons-react";
 
@@ -8,24 +7,12 @@ interface HeaderTabsProps {
 }
 
 export function HeaderTabs({ onTabChange }: HeaderTabsProps) {
-  const [opened, { toggle }] = useDisclosure(false);
-
   return (
     <>
       <div className={classes.header}>
         <Container className={classes.mainSection} size="md">
           <Group justify="space-between">
-            <></>
             <Title>KPlanify</Title>
-
-            <Burger
-              opened={opened}
-              onClick={toggle}
-              hiddenFrom="xs"
-              size="sm"
-            />
-
-            {/* - */}
           </Group>
         </Container>
         <Container size="md">

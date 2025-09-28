@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Border runner (conic)</title>
+    <style>
+      :root {
+        --a: 0deg; /* ángulo animado */
+        --thickness: 3px; /* grosor de la línea */
+        --color: #ff2770; /* color de la línea */
+        --bg: #0e0f13; /* color interior */
+        --radius: 14px; /* border-radius */
+        --speed: 2.2s; /* velocidad */
+      }
+
+      /* habilita la interpolación del custom property */
+      @property --a {
+        syntax: "<angle>";
+        inherits: false;
+        initial-value: 0deg;
+      }
+
+      .box {
+        position: relative;
+        width: 400px;
+        height: 200px;
+        background: var(--bg);
+        margin: 2rem auto;
+      }
+
+      .box::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        padding: var(--thickness);
+
+        /* mismo estilo del screenshot: repeating-conic-gradient + from var(--a) */
+        background: repeating-conic-gradient(
+          from var(--a),
+          var(--color) 0 80deg,
+          /* línea delgada */ transparent 4deg 360deg
+            /* resto transparente; último stop en 360° => no se repite en el círculo */
+        );
+
+        /* recorta para que solo quede un “anillo” (el borde) */
+        -webkit-mask: linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        mask-composite: exclude;
+
+        animation: spin var(--speed) linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          --a: 1turn;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

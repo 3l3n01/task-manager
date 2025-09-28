@@ -1,7 +1,8 @@
-import { Box, Accordion, Text } from "@mantine/core";
+import { Box, Accordion } from "@mantine/core";
 
 // Components
 import { ItemTaskControl } from "./ItemTaskControl";
+import { ItemTabsTask } from "./ItemTabsTask/ItemTabsTask";
 
 // interface Task {}
 interface TaskListProps {
@@ -11,13 +12,13 @@ interface TaskListProps {
   description: string;
 }
 
-export function ItemTask({ id, label, content, description }: TaskListProps) {
+export function ItemTask({ id, label, description }: TaskListProps) {
   return (
     <Box mb={15}>
       <Accordion.Item value={id} key={label}>
         <ItemTaskControl {...{ label, description }} />
-        <Accordion.Panel>
-          <Text size="sm">{content}</Text>
+        <Accordion.Panel mih={450}>
+          <ItemTabsTask />
         </Accordion.Panel>
       </Accordion.Item>
     </Box>
